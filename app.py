@@ -358,11 +358,14 @@ def health_check():
         'glove': 'loaded' if glove_model is not None else 'will load on first use'
     })
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+
     print("\n" + "="*50)
     print("🎉 AI Resume Matcher Server")
     print("="*50)
-    print("📍 Server starting at: http://localhost:5000")
-    print("📖 Open your browser and navigate to the URL above")
+    print(f"🚀 Server starting on port {port}")
+    print("🌐 Running on Render / Docker")
     print("="*50 + "\n")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+
+    app.run(host="0.0.0.0", port=port)
